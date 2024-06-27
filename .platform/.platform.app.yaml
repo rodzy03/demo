@@ -4,7 +4,7 @@ disk: 2048
 
 dependencies:
     php:
-        composer: "^2"
+        composer/composer: "^2"
 
 hooks:
     build: |
