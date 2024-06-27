@@ -1,0 +1,25 @@
+name: app
+type: 'php:8.1'
+disk: 2048
+
+dependencies:
+    php:
+        composer/composer: "^2"
+
+hooks:
+    build: |
+        set -e
+        composer install --prefer-dist --no-progress --no-interaction
+
+web:
+    locations:
+        "/":
+            root: "web"
+            passthru: "/index.php"
+            index:
+                - index.php
+                - index.html
+
+relationships:
+    database: "db:mysql"
+    redis: "redis:redis"
