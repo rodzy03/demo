@@ -17,5 +17,5 @@ web:
                 - index.html
 
 relationships:
-    database: "db:mysqldump"
+    database: "db:mysql"
     redis: "redis:redis"
