@@ -11,3 +11,7 @@ web:
       root: "public"
       index: ["index.php"]
       allow: true
+
+relationships:
+    database: "db:mysql"
+    redis: "redis:redis"
