@@ -1,16 +1,19 @@
 name: app
-type: 'php:8.0'
+type: 'php:8.1'
+disk: 2048
 
-# The build flavor determines how Platform.sh builds your app.
-build:
-  flavor: composer
+hooks:
+    build: |
+        composer install --prefer-dist --no-progress --no-interaction
 
 web:
-  locations:
-    "/":
-      root: "web"
-      index: ["index.php"]
-      allow: true
+    locations:
+        "/":
+            root: "web"
+            passthru: "/index.php"
+            index:
+                - index.php
+                - index.html
 
 relationships:
     database: "db:mysql"
