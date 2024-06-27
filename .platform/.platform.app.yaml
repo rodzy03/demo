@@ -2,18 +2,18 @@ name: app
 type: 'php:8.1'
 disk: 2048
 
-hooks:
-    build: |
-        composer install --prefer-dist --no-progress --no-interaction
+dependencies:
+    php:
+        composer/composer: "^2"
+
+build:
+  flavor: composer
 
 web:
     locations:
         "/":
             root: "web"
-            passthru: "/index.php"
-            index:
-                - index.php
-                - index.html
+            index: [index.php]
 
 relationships:
     database: "db:mysql"
