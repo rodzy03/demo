@@ -9,7 +9,6 @@ dependencies:
 hooks:
     build: |
         set -e
-        echo $PLATFORM_APP_DIR
         cd $PLATFORM_APP_DIR     # Change directory to the root of your application
         composer install --prefer-dist --no-progress --no-interaction
 
