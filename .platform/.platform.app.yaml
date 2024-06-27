@@ -8,7 +8,7 @@ build:
 web:
   locations:
     "/":
-      root: "public"
+      root: "web"
       index: ["index.php"]
       allow: true
 
